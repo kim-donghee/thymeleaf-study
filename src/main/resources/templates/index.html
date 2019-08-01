@@ -8,5 +8,10 @@
 	
 	<p>Message : <span th:text="${message}"></span></p>
 	
+	<div th:object="${account}">
+		<p>Name : <span th:text="*{name}"></span></p>
+		<p>Tel : <span th:text="*{tel}"></span></p>
+	</div>
+	
 </body>
 </html>
