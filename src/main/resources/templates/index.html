@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>Thymeleaf Study</title>
 </head>
-<body>
+<body th:inline="text">
 
 	<p>Message : <span th:text="${message}"></span></p>
 	
@@ -30,19 +30,31 @@
 	
 	<input type="checkbox" th:checked="${checked}">
 	
-	<table>
+	<table > <!-- th:remove="all-but-first" -->
 		<tr>
 			<th>Id</th>
 			<th>Name</th>
 			<th>Tel</th>
 		</tr>
-		<tr th:if="${not #sets.isEmpty(accounts)}" th:each="myAccount : ${accounts}">
+		<!--/* -->
+		<tr th:each="myAccount : ${accounts}">
 			<td th:text="${myAccount.id}"></td>
 			<td th:text="${myAccount.name}"></td>
 			<td th:text="${myAccount.tel}"></td>
 		</tr>
-		<tr th:unless="${not #sets.isEmpty(accounts)}">
+		<!-- */-->
+		<!-- th:if="${not #sets.isEmpty(accounts)}" <tr th:unless="${not #sets.isEmpty(accounts)}">
 			<td th:text="'No Data.'" th:attr="colspan=3"></td>
+		</tr> -->
+		<tr>
+			<td th:text="1"></td>
+			<td th:text="dong"></td>
+			<td th:text="010"></td>
+		</tr>
+		<tr>
+			<td th:text="1"></td>
+			<td th:text="dong"></td>
+			<td th:text="010"></td>
 		</tr>
 	</table>
 	
@@ -52,7 +64,24 @@
 		<p th:cass="3">3</p>
 	</div>
 	
-	<div th:include="footer :: footer"></div>
+	<p th:remove="${checked} ? all : none"> Message : <span th:text="${message}"></span></p>
+	
+	<div th:with="value1=1,value2=2">
+		<span th:text="${value1}"></span>
+		<span th:text="${value2}"></span>
+		[[${value1}]][[${value2}]]
+	</div>
+	<!-- fdsfadsfdsa  -->
+	<!--/* dsadsa */-->
+	[[${message}]]
+	
+	<script th:inline="javascript">
+		var message = /*[[${message}]]*/ 'message';
+		alert(message);
+	</script>
+	
+	<div th:include="footer1 :: footer (1, 2)"></div>
+	<div th:replace="footer1 :: footer (1, 2)"></div>
 	
 </body>
 </html>
