@@ -26,5 +26,9 @@
 		<p>Tel : <span th:text="*{tel}"></span></p>
 	</div>
 	
+	<p>Message : <span th:text="${message}" th:attr="class=message" th:attrappend="class=${' ' + message}"></span></p>
+	
+	<input type="checkbox" th:checked="${checked}">
+	
 </body>
 </html>
