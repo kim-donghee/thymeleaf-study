@@ -5,7 +5,7 @@
 <title>Thymeleaf Study</title>
 </head>
 <body>
-	
+
 	<p>Message : <span th:text="${message}"></span></p>
 	
 	<div th:object="${account}">
@@ -19,6 +19,12 @@
 	
 	<p><span th:text="|Message : ${message}|"></span></p>
 	<p><span th:text="'Message : ' + ${message}"></span></p>
+	
+	<div th:object="${account}">
+		<p>id : <span th:text="*{id}?: 'No Id specified'"></span></p>
+		<p>Name : <span th:text="*{name}"></span></p>
+		<p>Tel : <span th:text="*{tel}"></span></p>
+	</div>
 	
 </body>
 </html>
