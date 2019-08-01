@@ -11,7 +11,7 @@ import lombok.Setter;
 @NoArgsConstructor @AllArgsConstructor @EqualsAndHashCode(of = "id")
 public class Account {
 	
-	private String id;
+	private int id;
 	
 	private String name;
 	
